@@ -1,7 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import styles from "./AudioPlayer.module.css";
 
-function AudioPlayer({ track }) {
+import { PlayIcon } from "../Icons/PlayIcon";
+import { PauseIcon } from "../Icons/PauseIcon";
+import { Button } from "../Controlls/Button";
+
+export const AudioPlayer = ({ track }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const audioRef = useRef(null);
@@ -46,37 +50,12 @@ function AudioPlayer({ track }) {
     <>
       <audio src={track.audio} ref={audioRef} />
       <div className={styles.audioPlayer}>
-        <button
-          className={styles.togglePlaybackButton}
+        <Button
           onClick={handleTogglePlaybackClick}
+          className="bg-gray-400 rounded-full w-10 h-10 flex items-center justify-center"
         >
-          {isPlaying ? (
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M10 5H7V19H10V5ZM17 5H14V19H17V5Z"
-                fill="#000"
-              />
-            </svg>
-          ) : (
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M20 12L8 5V19L20 12Z" fill="#000" />
-            </svg>
-          )}
-        </button>
+          {isPlaying ? <PauseIcon /> : <PlayIcon />}
+        </Button>
         <div className={styles.trackInfo}>
           <div className={styles.trackTitle}>{track.title}</div>
           <div className={styles.trackArtist}>
@@ -96,6 +75,4 @@ function AudioPlayer({ track }) {
       </div>
     </>
   );
-}
-
-export default AudioPlayer;
+};

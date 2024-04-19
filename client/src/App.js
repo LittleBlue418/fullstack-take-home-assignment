@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styles from "./App.module.css";
-import logo from "./assets/logo.svg";
 
-import TrackRow from "./components/TrackRow";
-import AudioPlayer from "./components/AudioPlayer";
+import { Navigation } from "./components/Navigation/Navigation";
+import { AllTracks } from "./views/AllTracks/AllTracks";
+import { Playlists } from "./views/Playlists/Playlists";
+import { AudioPlayer } from "./components/AudioPlayer/AudioPlayer";
+
 
 function App() {
   const [tracks, setTracks] = useState([]);
   const [currentTrack, setCurrentTrack] = useState();
+  const [view, setView] = useState("all");
 
   useEffect(() => {
     fetch("http://0.0.0.0:8000/tracks/", { mode: "cors" })
@@ -20,22 +23,11 @@ function App() {
   return (
     <>
       <main className={styles.app}>
-        <nav>
-          <img src={logo} className={styles.logo} alt="Logo" />
-          <ul className={styles.menu}>
-            <li>
-              <a href="#" className={styles.active}>
-                Tracks
-              </a>
-            </li>
-            <li>
-              <a href="#">Playlists</a>
-            </li>
-          </ul>
-        </nav>
-        {tracks.map((track, ix) => (
-          <TrackRow key={ix} track={track} handlePlay={handlePlay} />
-        ))}
+        <Navigation setView={setView} view={view} />
+        {view === "all" && (
+          <AllTracks tracks={tracks} handlePlay={handlePlay} />
+        )}
+        {view === "playlist" && <Playlists />}
       </main>
       {currentTrack && <AudioPlayer track={currentTrack} />}
     </>
