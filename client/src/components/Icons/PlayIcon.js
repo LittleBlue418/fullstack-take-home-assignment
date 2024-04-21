@@ -1,4 +1,4 @@
-export const PlayIcon = ({ size = "24", ariaLabel = "Add" }) => (
+export const PlayIcon = ({ size = "24", ariaLabel = "Play" }) => (
   <svg
     width={size}
     height={size}
