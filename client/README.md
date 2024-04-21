@@ -1,3 +1,41 @@
+# Holly's stuff
+
+## My thought process
+
+### Done
+
+- [x] Tidy up / familiarise self
+- [x] curse css files and add tailwind
+- [x] curse javascript and seriously considder installing typescript
+- [x] debate with self but decide typescript is out of scope for now
+- [x] set up the basic view for the new playlists
+- [x] add create modal
+- [x] get fed up with prop drilling and set up a context
+- [x] get adding and viewing functionality working (basic)
+
+### To Do
+
+- [ ] get delete basic functionality working
+- [ ] build basic edit view
+- [ ] get edit basic functionality working
+- [ ] 'Add to playlist' button on a track
+- [ ] fix up functionalty to use real track data
+- [ ] fix up views to look prety
+- [ ] write tests
+
+### Nice to have
+
+- [ ] display genre on tracks
+- [ ] write track ordering logic
+- [ ] add up and down arrows to a track in a playlist for re-ordering
+
+### Prop takes too much time (be real plis Holly...)
+
+- [ ] Curse the javascript gods and upgrade to typescript
+- [ ] configure tailwind to company colours and burn all css files
+- [ ] all the other stuff on the suggestions list...
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
