@@ -16,7 +16,10 @@ export const CRUDPlaylistModal = () => {
     }
   };
 
-  console.log(getModalInner())
+  /* 
+    Oh lord, I had such plans...
+    ok, so, Here would come the update and delete views
+  */
 
   return <div className="fixed top-0 bottom-0 right-0 left-0">{getModalInner()}</div>;
 };

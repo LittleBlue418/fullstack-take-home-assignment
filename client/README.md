@@ -1,5 +1,11 @@
 # Holly's stuff
 
+## Late night 'day before interview' notes
+Next steps would be unifying as much of the logic in the context as possible to avoid prop drilling.
+Adding the CRUD functionality
+Testing!
+Ideally I would change this to typescript which means that, yers, tests, but also typing! 
+
 ## My thought process
 
 ### Done
