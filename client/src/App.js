@@ -5,8 +5,9 @@ import { Navigation } from "./components/Navigation/Navigation";
 import { AllTracks } from "./views/AllTracks/AllTracks";
 import { Playlists } from "./views/Playlists/Playlists";
 import { AudioPlayer } from "./components/AudioPlayer/AudioPlayer";
-import { CreatePlaylistModal } from "./components/CreatePlaylistModal/CreatePlaylistModal";
 import { useAppContext } from "./contexts/AppContext";
+import { Playlist } from "./views/Playlist/Playlist";
+import { CRUDPlaylistModal } from "./components/CRUDModals/CRUDPlaylistModal";
 
 function App() {
   const [tracks, setTracks] = useState([]);
@@ -29,10 +30,11 @@ function App() {
         {view === "all" && (
           <AllTracks tracks={tracks} handlePlay={handlePlay} />
         )}
-        {view === "playlist" && <Playlists />}
+        {view === "playlists" && <Playlists />}
+        {view === "playlist" && <Playlist />}
       </main>
       {currentTrack && <AudioPlayer track={currentTrack} />}
-      {modalOpen && <CreatePlaylistModal />}
+      {modalOpen && <CRUDPlaylistModal />}
     </>
   );
 }

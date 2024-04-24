@@ -6,7 +6,7 @@ import { PlusIcon } from "../Icons/PlusIcon";
 export const Navigation = () => {
   const { setModalOpen, setView, view } = useAppContext();
   return (
-    <nav>
+    <nav className="mb-2">
       <img src={logo} alt="Logo" className="w-10 h-10" />
       <div className="flex items-center">
         <Button
@@ -19,16 +19,16 @@ export const Navigation = () => {
           Tracks
         </Button>
         <Button
-          onClick={() => setView("playlist")}
+          onClick={() => setView("playlists")}
           className={`mr-6 ${
-            view === "playlist" ? "border-b-2 h-12 border-white" : ""
+            view === "playlist" || view === "playlists" ? "border-b-2 h-12 border-white" : ""
           }`}
           ariaLabel="Navigate to your playlists"
         >
           Playlists
         </Button>
         <Button
-          onClick={() => setModalOpen(true)}
+          onClick={() => setModalOpen('create')}
           className="text-gray-600 flex h-7 w-7 items-center hover:text-gray-500 hover:border-gray-500 justify-center border-gray-600 border-2 rounded-full"
           ariaLabel="Create a new playlist"
         >

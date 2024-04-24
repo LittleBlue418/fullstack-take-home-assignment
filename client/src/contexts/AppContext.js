@@ -4,19 +4,23 @@ const AppContext = React.createContext();
 
 const AppContextProvider = ({ children }) => {
   const [view, setView] = useState("all");
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(undefined);
   const [userPlaylists, setUserPlaylists] = useState([]);
+  const [selectedPlaylist, setSelectedPlaylist] = useState(undefined);
 
   const checkPlaylistNameAvailableAndSet = (value) => {
-    if (userPlaylists.length >= 1 && userPlaylists.find((playlist) => (playlist.name === value))) {
+    if (
+      userPlaylists.length >= 1 &&
+      userPlaylists.find((playlist) => playlist.name === value)
+    ) {
       return false;
     }
 
-    const newPlaylistItem = {name: value, songs: []}
+    const newPlaylistItem = { name: value, songs: [] };
 
-    const newPlaylistList = [...userPlaylists, [newPlaylistItem]];
-    
-    setUserPlaylists(newPlaylistList);
+    const newPlaylistCollection = [...userPlaylists, newPlaylistItem];
+
+    setUserPlaylists(newPlaylistCollection);
     return true;
   };
 
@@ -27,6 +31,8 @@ const AppContextProvider = ({ children }) => {
     setModalOpen,
     userPlaylists,
     setUserPlaylists,
+    selectedPlaylist,
+    setSelectedPlaylist,
     checkPlaylistNameAvailableAndSet,
   };
 
